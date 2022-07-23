@@ -27,7 +27,7 @@ def getLetters():
         sys.exit()
 
     answer = random.choice(list(data.keys()))
-    letters = random.choices(alphabet, k=4)
+    letters = random.sample(alphabet, k=4)
     if not answer in letters:
         letters[random.randint(0, 3)] = answer
     for btn, letter in zip(btns, letters):
