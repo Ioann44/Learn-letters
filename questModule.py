@@ -34,7 +34,7 @@ def getLetters():
         btn["text"] = letter
 
     tk_update()
-    start_new_thread(sm.playFullSound, answer)
+    start_new_thread(sm.playFullSound, (answer,))
 
 
 def AnswerBtnPressed(id):
@@ -42,7 +42,7 @@ def AnswerBtnPressed(id):
         data[answer] += IF_RIGHT
         if data[answer] <= 0:
             del data[answer]
-            print(len(data), 'букв осталось изучить')
+            print(len(data), "букв осталось изучить")
     else:
         btns[id]["bg"] = "red"
         data[answer] += IF_WRONG
@@ -62,4 +62,4 @@ def AnswerBtnPressed(id):
 
 
 def ListenBtnPressed():
-    start_new_thread(sm.playSound, answer)
+    start_new_thread(sm.playSound, (answer,))
